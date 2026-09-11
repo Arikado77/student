@@ -1,4 +1,6 @@
-package com.base_student.model;
+package com.base_student.student;
+
+import com.base_student.student.dto.StudentDto;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -10,6 +12,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import tools.jackson.databind.ObjectMapper;
 
 @Data
 @Builder
@@ -35,4 +38,20 @@ public class StudentModel {
     @Column(name = "email", columnDefinition = "varchar(80)")
     private String email;
 
+    public StudentDto toDto() {
+        return StudentDto.builder()
+                .id(this.id)
+                .name(this.name)
+                .lastName(this.lastName)
+                .phone(this.phone)
+                .eMail(this.email)
+                .build();
+    }
+
+    @Override
+    public String toString() {
+        return new ObjectMapper().writeValueAsString(this);
+    }
+
 }
+
