@@ -44,7 +44,7 @@ public class StudentModel {
                 .name(this.name)
                 .lastName(this.lastName)
                 .phone(this.phone)
-                .eMail(this.email)
+                .email(this.email) // Cambia .eMail por .email
                 .build();
     }
 
