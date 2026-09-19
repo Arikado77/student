@@ -18,7 +18,7 @@ public class StudentDto {
     private String name;
     private String lastName;
     private String phone;
-    private String email; 
+    private String email; // Cambiado para que Lombok genere getEmail()
 
     public StudentModel toModel() {
         return StudentModel.builder()
